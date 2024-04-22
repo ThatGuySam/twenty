@@ -19,11 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18"
-      - name: Website / Install Dependencies
-        run: yarn
+      - name: Install dependencies
+        uses: ./.github/workflows/actions/yarn-install
       - name: Website / Build Website
         run: npx nx build twenty-website
